@@ -1,0 +1,37 @@
+@import '~vars.scss';
+
+.button {
+  position: relative;
+  overflow: hidden;
+  padding: 10px 15px;
+  font-size: 18px;
+  border: 0;
+  border-radius: 3px;
+
+  &:before {
+    position: absolute;
+    content: '';
+    top: 0;
+    bottom: 0;
+    right: 100%;
+    left: 0;
+    background: rgba(255, 255, 255, .3);
+    transition: .2s;
+  }
+
+  &:hover {
+    cursor: pointer;
+
+    &:before { right: 0; }
+  }
+}
+
+.button-green {
+  background: $green;
+  color: #fff;
+}
+
+.button-blue {
+  background: $blue;
+  color: #fff;
+}

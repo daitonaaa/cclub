@@ -1,0 +1,18 @@
+@import '~vars.scss';
+
+.main-menu {
+  padding: 10px 0;
+}
+
+.main-menu-item {
+  margin-right: 15px;
+  font-size: 18px;
+  color: #fff;
+  text-decoration: none;
+  transition: $baseTransitionIn;
+}
+
+.active-menu-item {
+  font-weight: 600;
+  color: $blue;
+}

@@ -1,0 +1,56 @@
+@import '~vars.scss';
+
+.layout {
+  margin: 0;
+  padding: 0;
+  height: inherit;
+}
+
+.contain {
+  margin: 0 auto;
+  padding: 0 15px;
+  width: 1200px;
+  height: inherit;
+  border-radius: 10px;
+}
+
+.content {
+  padding: 15px;
+  min-height: 80%;
+  background: #f9f7f7;
+  border-radius: 5px;
+}
+
+.logo {
+  padding: 20px 0;
+
+  img { width: 140px; }
+}
+
+@media only screen and (max-width: $tabletsBig) {
+  .contain {
+    padding: 0 40px;
+    width: 768px;
+  }
+
+  .logo {
+    padding: 30px 0;
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: $tabletsSmall) {
+  .contain {
+    padding: 0 20px;
+    width: 100%;
+  }
+
+  .logo { padding: 20px 0; }
+}
+
+@media only screen and (max-width: $mobiles) {
+  .contain {
+    padding: 0 20px;
+    width: 360px;
+  }
+}

@@ -1,0 +1,26 @@
+@import '~vars.scss';
+
+.comment {
+  margin-bottom: 10px;
+  padding: 10px 0;
+  font-size: 16px;
+  border-bottom: 1px dashed #d4c8c8;
+
+  &:last-child {
+    margin-bottom: 0;
+    border-bottom: 0;
+  }
+}
+
+.comment-author {
+
+  &:first-letter { text-transform: uppercase; }
+}
+
+.comment-body pre {
+  font-family: inherit;
+  font-size: 16px;
+  white-space: inherit;
+
+  &:first-letter { text-transform: uppercase; }
+}

@@ -1,0 +1,64 @@
+@import '~vars.scss';
+@import '~mixins.scss';
+
+.post {
+  font-size: 18px;
+
+  h1:first-letter { text-transform: uppercase; }
+}
+
+.post-back {
+  @include flexBox();
+  opacity: .5;
+  padding-bottom: 15px;
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+  transition: $baseTransitionIn;
+
+  i {
+    display: inline-block;
+    margin-right: 7px;
+    padding: 3px;
+    border: solid black;
+    border-width: 0 2px 2px 0;
+    transform: rotate(135deg);
+  }
+
+  &:hover { opacity: 1; }
+}
+
+.post-body pre {
+  font-family: inherit;
+  font-size: 18px;
+  white-space: inherit;
+
+  &:first-letter { text-transform: uppercase; }
+}
+
+.post-author {
+  padding: 15px 0;
+
+  a { color: $blue; }
+}
+
+.post-controls {
+  @include flexBox();
+  margin-top: 10px;
+  padding: 15px 0;
+  border-top: 1px solid #d4c8c8;
+}
+
+.post-remove {
+  margin-left: 15px;
+  color: red;
+  text-decoration: underline;
+
+  &:hover { cursor: pointer; }
+}
+
+.post-comments {
+  margin: 15px 0;
+
+  h2 { color: $blue; }
+}

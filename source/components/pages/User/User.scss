@@ -1,0 +1,14 @@
+@import '~vars.scss';
+
+.user {
+  font-size: 18px;
+}
+
+.user-posts {
+  font-size: 14px;
+
+  h2 {
+    padding: 15px 0;
+    color: $blue;
+  }
+}

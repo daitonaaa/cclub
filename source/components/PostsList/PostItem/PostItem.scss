@@ -1,0 +1,52 @@
+@import '~vars.scss';
+@import '~mixins.scss';
+
+.post-item {
+  overflow: hidden;
+  margin: 10px;
+  padding: 10px;
+  width: calc(100% / 4 - (10px * 2));
+  height: 150px;
+  background: rgba(228, 221, 221, .65);
+  color: black;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: .2s ease;
+
+  &:hover {
+    box-shadow: 3px 2px 5px 0 rgba(50, 50, 50, .75);
+  }
+
+  @media (max-width: $tabletsSmall) {
+    width: calc(100% / 2 - (10px * 2));
+  }
+
+  @media (max-width: $mobiles) {
+    width: 100%;
+  }
+}
+
+.post-title {
+  @include text-vertical-hidden;
+  height: 35px;
+  font-weight: 600;
+  white-space: inherit;
+
+  &:first-letter { text-transform: uppercase; }
+}
+
+.post-body {
+
+  pre {
+    @include text-vertical-hidden;
+    height: 50px;
+    font-family: inherit;
+    white-space: inherit;
+  }
+
+  &:first-letter { text-transform: uppercase; }
+}
+
+.post-author {
+  position: relative;
+}

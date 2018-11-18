@@ -1,0 +1,7 @@
+@import '~vars.scss';
+@import '~mixins.scss';
+
+.posts-list {
+  display: flex;
+  flex-wrap: wrap;
+}
