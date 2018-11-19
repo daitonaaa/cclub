@@ -12,8 +12,7 @@ const Layout = ({ route: { routes }, location }) => (
   <div styleName="layout">
     <div styleName="contain">
       <div styleName="logo">
-        {/* <img src="https://credit.club/static/media/credit-club-logo.122c505b.svg" alt="logo" /> */}
-        <img src="https://redarmmarket.ru/img/logo-header.png" alt="logo" />
+        <img src="https://credit.club/static/media/credit-club-logo.122c505b.svg" alt="logo" />
       </div>
       <MainMenu location={location} />
       <div styleName="content">

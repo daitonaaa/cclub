@@ -14,8 +14,14 @@ const setUsers = (list) => ({
 });
 
 
-const setLoadingStatus = (status) => ({
+const setSingleLoadingStatus = (status) => ({
   type: actionTypes.USERS_SET_SINGLE_LOADING_STATUS,
+  status,
+});
+
+
+const setListLoadingStatus = (status) => ({
+  type: actionTypes.USERS_SET_LOADING_STATUS,
   status,
 });
 
@@ -26,7 +32,7 @@ export const resetUser = () => ({
 
 
 export const fetchUser = (id) => (dispatch) => {
-  dispatch(setLoadingStatus(true));
+  dispatch(setSingleLoadingStatus(true));
 
   return api.getUser(id).then(
     response => response.json()
@@ -35,8 +41,9 @@ export const fetchUser = (id) => (dispatch) => {
   );
 };
 
-export const fetchUsers = () => (dispatch) => {
-  
+export const fetchUsers = () => (dispatch, getState) => {
+  dispatch(setListLoadingStatus(true));
+
   return api.getUsers().then(
     response => response.json()
   ).then(

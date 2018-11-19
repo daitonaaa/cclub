@@ -1,4 +1,3 @@
-import pure from 'recompose/pure';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import React, { Component } from 'react';
@@ -143,4 +142,4 @@ class Pagination extends Component {
   }
 }
 
-export default pure(Pagination);
+export default Pagination;

@@ -10,7 +10,7 @@ import styles from './PostsList.scss';
 
 
 const PostsList = ({ data }) => (
-  <Pagination step={12} className={styles.postsList}>
+  <Pagination step={12} className={styles.postsList} data={data}>
     {
       isNotEmpty(data) ? (
         data.map(item => (

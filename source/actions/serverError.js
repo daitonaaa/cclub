@@ -1,21 +1,25 @@
 import * as actionTypes from 'constants/actionTypes';
 
 
-const setError = (error, errorCode, system) => ({
+const setError = (error, system) => ({
   type: actionTypes.SERVER_ERROR_SET_DATA,
   error,
   system,
-  errorCode,
 });
 
 
-export const setServerError = (errorData, errorCode, system = true) => dispatch => {
+export const setServerError = (errorData, system = true) => dispatch => {
 
-  let error = errorData.errors
-    ? errorData.errors.error
-    : errorData.message;
+  let error;
 
-  dispatch(setError(error, errorCode, system));
+  if (error instanceof Object) {
+    error = errorData.errors
+      ? errorData.errors.error
+      : errorData.message;
+  }
+  else error = errorData;
+
+  dispatch(setError(error, system));
 };
 
 
