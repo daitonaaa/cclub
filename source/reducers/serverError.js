@@ -6,7 +6,6 @@ import * as actionTypes from 'constants/actionTypes';
 
 const initialState = Immutable.fromJS({
   error: '',
-  errorCode: null,
   system: false, // Если true, то ошибка будет выводится в всплывашку
 });
 
@@ -17,7 +16,6 @@ const serverError = (state = initialState, action) => {
       return state.merge({
         error: action.error,
         system: action.system,
-        errorCode: action.errorCode,
       });
 
     case actionTypes.SERVER_ERROR_RESET:

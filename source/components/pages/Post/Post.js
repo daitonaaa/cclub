@@ -40,9 +40,9 @@ class Post extends Component {
   }
 
   componentDidMount() {
-    const { fetchPost, fetchComments, match: { params: { id } } } = this.props;
+    const { single, fetchPost, fetchComments, match: { params: { id } } } = this.props;
 
-    fetchPost(+ id);
+    if (!single.id) fetchPost(+ id);
     fetchComments(+ id);
   }
 
@@ -76,6 +76,12 @@ class Post extends Component {
       single: { title, body, userId, username },
     } = this.props;
 
+    const buttonUpdateOptions = {
+      style: 'blue',
+      title: 'Редактировать',
+      onClick: () => alert('Редактировать'),
+    }
+
     return (
       <Fragment>
         <Helmet>
@@ -99,11 +105,7 @@ class Post extends Component {
                 </Link>
               </div>
               <div className={styles.postControls}>
-                <Button
-                  title="Редактировать"
-                  style="blue"
-                  onClick={() => alert('Редактировать')}
-                />
+                <Button {...buttonUpdateOptions} />
                 <div className={styles.postRemove} onClick={this.handleDelete}>
                   Удалить
                 </div>
@@ -127,8 +129,8 @@ class Post extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  ...state.posts,
   ...state.comments,
+  ...state.posts.posts,
 });
 
 const mapDispatchToProps = {

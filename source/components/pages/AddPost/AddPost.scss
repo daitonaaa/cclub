@@ -1,0 +1,23 @@
+@import '~mixins.scss';
+
+.add-post {
+  position: relative;
+
+  &-users {
+    margin: 15px 0;
+  }
+
+  &-body {
+    margin: 15px 0;
+  }
+
+  &-controls {
+    @include flexBox();
+  }
+
+  &-error {
+    margin-left: 15px;
+    font-weight: 800;
+    color: red;
+  }
+}

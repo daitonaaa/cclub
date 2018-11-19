@@ -7,7 +7,7 @@ import Controls from './Controls';
 import { Loading } from 'components/common';
 import PostsList from 'components/PostsList';
 
-import { fetchPosts, resetList } from 'actions/posts';
+import { fetchPosts, resetList, resetFilter } from 'actions/posts';
 
 
 class Posts extends Component {
@@ -18,12 +18,13 @@ class Posts extends Component {
     route: PropTypes.object.isRequired,
     history: PropTypes.object.isRequired,
 
-    // search
+    // filter
     searchResults: PropTypes.array.isRequired,
     filterIsActive: PropTypes.bool.isRequired,
 
     resetList: PropTypes.func.isRequired,
     fetchPosts: PropTypes.func.isRequired,
+    resetFilter: PropTypes.func.isRequired,
   }
 
   componentDidMount() {
@@ -38,9 +39,10 @@ class Posts extends Component {
   // и написать проверку на наличие данных в дид маунте
   // то запись будет удаляться из списка
   componentWillUnmount() {
-    const { resetList } = this.props;
+    const { resetList, resetFilter } = this.props;
 
     resetList();
+    resetFilter();
   }
 
 
@@ -71,12 +73,14 @@ class Posts extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  ...state.posts,
+  ...state.posts.posts,
+  ...state.posts.filter,
 });
 
 const mapDispatchToProps = {
   resetList,
   fetchPosts,
+  resetFilter,
 };
 
 export default connect(

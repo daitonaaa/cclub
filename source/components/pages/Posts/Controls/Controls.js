@@ -45,14 +45,29 @@ class Controls extends Component {
       value: id, label: username
     }));
 
+    const buttonAddOptions = {
+      style: 'blue',
+      title: 'Добавить запись',
+      onClick: () => history.push(url.addpost.path)
+    };
+
+    const inputSearchTextOptions = {
+      value : searchText,
+      title: 'Поиск по названию',
+      onChange: (value) => this.handleChangeFilter('searchText', value),
+    };
+
+    const selectSearchUserOptions = {
+      value: searchUser,
+      options: userOptions,
+      title: 'Фильтр по пользователю',
+      onChange: (value) => this.handleChangeFilter('searchUser', value),
+    };
+
     return (
       <div className={styles.controls}>
         <div className={styles.controlsLeft}>
-          <Button
-            style="blue"
-            title="Добавить запись"
-            onClick={() => history.push(url.addpost.path)}
-          />
+          <Button {...buttonAddOptions} />
           {
             filterIsActive && (
               <div
@@ -65,18 +80,9 @@ class Controls extends Component {
           }
         </div>
         <div className={styles.controlsRight}>
-          <Input
-            value={searchText}
-            title="Поиск по названию"
-            onChange={(value) => this.handleChangeFilter('searchText', value)}
-          />
+          <Input {...inputSearchTextOptions} />
           <div className={styles.controlsSelect}>
-            <Select
-              title="Фильтр по пользователю"
-              value={searchUser}
-              options={userOptions}
-              onChange={(value) => this.handleChangeFilter('searchUser', value)}
-            />
+            <Select {...selectSearchUserOptions} />
           </div>
         </div>
       </div>
@@ -85,7 +91,7 @@ class Controls extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  ...state.posts,
+  ...state.posts.filter,
   usersList: state.users.list,
 });
 

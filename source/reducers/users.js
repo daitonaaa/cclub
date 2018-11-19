@@ -7,6 +7,7 @@ import * as actionTypes from 'constants/actionTypes';
 const initialState = Immutable.fromJS({
   // Users list
   list: [],
+  usersIsFetching: false,
 
   // Single user
   userInfo: {},
@@ -20,8 +21,14 @@ function users(state = initialState, action) {
     case actionTypes.USERS_SET_SINGLE_LOADING_STATUS:
       return state.set('userIsFetching', action.status);
 
+    case actionTypes.USERS_SET_LOADING_STATUS:
+      return state.set('usersIsFetching', action.status);
+
     case actionTypes.USERS_SET_LIST:
-      return state.set('list', action.list);
+      return state.merge({
+        list: action.list,
+        usersIsFetching: false,
+      });
     
     case actionTypes.USERS_SET_SINGLE:
       return state.merge({

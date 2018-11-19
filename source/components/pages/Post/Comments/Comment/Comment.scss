@@ -10,17 +10,15 @@
     margin-bottom: 0;
     border-bottom: 0;
   }
-}
 
-.comment-author {
+  &-author,
+  &-body pre {
+    &:first-letter { text-transform: uppercase; }
+  }
 
-  &:first-letter { text-transform: uppercase; }
-}
-
-.comment-body pre {
-  font-family: inherit;
-  font-size: 16px;
-  white-space: inherit;
-
-  &:first-letter { text-transform: uppercase; }
+  &-body pre {
+    font-family: inherit;
+    font-size: 16px;
+    white-space: inherit;
+  }
 }

@@ -13,20 +13,7 @@
     "dev": "set NODE_ENV=development&& babel-node source/server.js",
     "prod": "set NODE_ENV=production&& webpack && babel-node source/server.js",
     "dev-unix": "NODE_ENV=development babel-node source/server.js",
-    "prod-unix": "NODE_ENV=production webpack && babel-node source/server.js",
-    "test": "jest"
-  },
-  "jest": {
-    "setupFiles": [
-      "<rootDir>/jest-setup.js"
-    ],
-    "moduleDirectories": [
-      "node_modules",
-      "source"
-    ],
-    "moduleNameMapper": {
-      "\\.scss$": "<rootDir>/jest-block-scss.js"
-    }
+    "prod-unix": "NODE_ENV=production webpack && babel-node source/server.js"
   },
   "browserslist": [
     ">3% in RU"
