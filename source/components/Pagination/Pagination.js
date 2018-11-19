@@ -22,14 +22,12 @@ class Pagination extends Component {
   state = { page: 1 }
 
   componentWillReceiveProps(nextProps) {
-    const { page } = this.state;
-    const { children, step } = this.props;
+    const { children } = this.props;
 
     if (
       Array.isArray(children) &&
       Array.isArray(nextProps.children) &&
-      nextProps.children.length !== children.length &&
-      children.length < step * page
+      nextProps.children.length !== children.length
     ) {
       this.setState({ page: 1 });
     }

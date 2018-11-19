@@ -11,7 +11,6 @@ class ServerError extends Component {
   static propTypes = {
     system: PropTypes.bool,
     error: PropTypes.string,
-    errorCode: PropTypes.number,
   }
 
   state = { show: false }
@@ -33,13 +32,11 @@ class ServerError extends Component {
     const {
       error,
       system,
-      errorCode,
     } = this.props;
 
     if (show && system) return ReactDOM.createPortal(
       <div className={styles.serverError}>
         {`Ошибка: ${error}.`}
-        <span>{`Код: ${errorCode}`}</span>
       </div>,
       this.container
     );

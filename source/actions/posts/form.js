@@ -41,7 +41,10 @@ export const formPost = (history) => (dispatch, getState) => {
   dispatch(formSetError(Boolean(!title || !userId || !body)));
 
   const { error } = getState().posts.form;
-  if (error) return;
+  if (error) {
+    dispatch(setFromPostProcess(false));
+    return;
+  }
 
   const post = { title, userId, body };
 
