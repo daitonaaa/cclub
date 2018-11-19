@@ -1,0 +1,17 @@
+.server-error {
+  position: fixed;
+  z-index: 9999;
+  overflow: hidden;
+  top: 0;
+  padding: 5px 30px;
+  max-width: 450px;
+  height: 50px;
+  background: #ffa9a9;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  border-radius: 5px;
+
+  span {
+    display: block;
+  }
+}

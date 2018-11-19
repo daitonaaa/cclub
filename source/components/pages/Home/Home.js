@@ -15,10 +15,10 @@ const Home = ({ history, route: { title } }) => (
       <title>{title}</title>
     </Helmet>
     <div className={styles.home}>
-      <div className={styles.homeTitle}>
+      {/* <div className={styles.homeTitle}>
         Тестовое задание на Front-end разработчика
       </div>
-      Исполнил: Оленин Александр Романович
+      Исполнил: Оленин Александр Романович */}
       <div className={styles.homeControls}>
         <Button
           style="blue"
