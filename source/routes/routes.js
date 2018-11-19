@@ -1,7 +1,7 @@
 import url from './urls';
 
 import Layout from 'components/Layout';
-import { Home, Posts, Post, User } from 'components/pages';
+import { Home, Posts, Post, User, AddPost } from 'components/pages';
 
 
 const routes = [
@@ -17,6 +17,11 @@ const routes = [
         ...url.posts,
         component: Posts,
         title: 'Записи',
+      },
+      {
+        ...url.addpost,
+        component: AddPost,
+        title: 'Добавить запись',
       },
       {
         path: url.post.path(),

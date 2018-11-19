@@ -8,6 +8,18 @@ const initialState = Immutable.fromJS({
   list: [],
   single: {},
   loading: false,
+
+  // Filter
+  searchUser: 0,
+  searchText: '',
+  searchResults: [],
+  filterIsActive: false,
+
+  form: {
+    body: '',
+    title: '',
+    userId: null,
+  }
 });
 
 
@@ -42,6 +54,24 @@ function posts(state = initialState, action) {
 
     case actionTypes.POSTS_RESET_LIST:
       return state.set('list', []);
+
+    // Filter
+    case actionTypes.POSTS_SET_FILTER_FIELD:
+      return state.setIn([action.field], action.value);
+
+    case actionTypes.POSTS_SET_FILTER_RESULTS:
+      return state.set('searchResults', action.list);
+    
+    case actionTypes.POSTS_SET_FILTER_ACTIVE:
+      return state.set('filterIsActive', action.status);
+
+    case actionTypes.POSTS_RESET_FILTER:
+      return state.merge({
+        searchUser: 0,
+        searchText: '',
+        searchResults: [],
+        filterIsActive: false,
+      });
 
     default:
       return state;

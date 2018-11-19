@@ -1,19 +1,19 @@
 export default {
 
   getPosts: () => (
-    fetch('https://jsonplaceholder.typicode.com/posts')
+    fetch('http://jsonplaceholder.typicode.com/posts')
   ),
 
   getUserPosts: (userId) => (
-    fetch(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`)
+    fetch(`http://jsonplaceholder.typicode.com/posts?userId=${userId}`)
   ),
 
   getPost: (id) => (
-    fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
+    fetch(`http://jsonplaceholder.typicode.com/posts/${id}`)
   ),
 
   deletePost: (id) => (
-    fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
+    fetch(`http://jsonplaceholder.typicode.com/posts/${id}`, {
       method: 'DELETE'
     })
   ),

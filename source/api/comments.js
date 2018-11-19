@@ -1,6 +1,6 @@
 export default {
 
   getComments: (id) => (
-    fetch(`https://jsonplaceholder.typicode.com/posts/${id}/comments`)
+    fetch(`http://jsonplaceholder.typicode.com/posts/${id}/comments`)
   ),
 };

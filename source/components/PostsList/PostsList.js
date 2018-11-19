@@ -14,7 +14,7 @@ const PostsList = ({ data }) => (
     {
       isNotEmpty(data) ? (
         data.map(item => (
-          <PostItem key={item.id} {...item} />
+          item && <PostItem key={item.id} {...item} />
         ))
       ) : (
         <div>

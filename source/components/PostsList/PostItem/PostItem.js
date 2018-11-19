@@ -7,7 +7,7 @@ import url from 'routes/urls';
 import styles from './PostItem.scss';
 
 
-const PostItem = ({ id, title, body, userId }) => (
+const PostItem = ({ id, title, body, userId, username }) => (
   <Link className={styles.postItem} to={url.post.path(id)}>
     <div className={styles.postTitle}>
       {title}
@@ -16,7 +16,7 @@ const PostItem = ({ id, title, body, userId }) => (
       <pre>{body}</pre>
     </div>
     <div className={styles.postAuthor}>
-      Автор: {userId}
+      Автор: {username}
     </div>
   </Link>
 );
@@ -29,6 +29,7 @@ PostItem.propTypes = {
     PropTypes.string,
     PropTypes.number,
   ]).isRequired,
+  username: PropTypes.string.isRequired,
 };
 
 export default PostItem;

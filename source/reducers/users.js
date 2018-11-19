@@ -5,7 +5,10 @@ import * as actionTypes from 'constants/actionTypes';
 
 
 const initialState = Immutable.fromJS({
+  // Users list
   list: [],
+
+  // Single user
   userInfo: {},
   userIsFetching: false,
 });

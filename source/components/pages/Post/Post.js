@@ -26,6 +26,7 @@ class Post extends Component {
       body: PropTypes.string,
       title: PropTypes.string,
       userId: PropTypes.number,
+      username: PropTypes.string,
     }).isRequired,
     comments: PropTypes.array.isRequired,
     history: PropTypes.object.isRequired,
@@ -70,7 +71,10 @@ class Post extends Component {
   }
 
   render() {
-    const { loading, comments, fetchingComments, single: { title, body, userId, } } = this.props;
+    const {
+      loading, comments, fetchingComments,
+      single: { title, body, userId, username },
+    } = this.props;
 
     return (
       <Fragment>
@@ -91,7 +95,7 @@ class Post extends Component {
               </div>
               <div className={styles.postAuthor}>
                 <Link to={url.user.path(userId)}>
-                  Автор: {userId}
+                  Автор: {username}
                 </Link>
               </div>
               <div className={styles.postControls}>

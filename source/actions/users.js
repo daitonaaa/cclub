@@ -40,7 +40,10 @@ export const fetchUsers = () => (dispatch) => {
   return api.getUsers().then(
     response => response.json()
   ).then(
-    json => dispatch(setUsers(json))
+    json => {
+      dispatch(setUsers(json));
+      return json;
+    }
   );
 };
 

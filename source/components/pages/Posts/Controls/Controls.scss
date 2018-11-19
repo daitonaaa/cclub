@@ -1,0 +1,44 @@
+@import '~vars.scss';
+@import '~mixins.scss';
+
+.controls {
+  @include flexBox();
+  flex-wrap: wrap;
+  padding: 15px 10px;
+}
+
+.controls-left {
+  @include flexBox();
+  width: 30%;
+
+  @media (max-width: $tabletsBig) { width: 100%; }
+}
+
+.controls-right {
+  @include flexBox();
+  flex: 1;
+
+  @media (max-width: $tabletsBig) { margin-top: 25px; }
+
+  @media (max-width: $mobiles) { flex-wrap: wrap; }
+}
+
+.controls-select {
+  margin-left: 15px;
+  width: 100%;
+
+  @media (max-width: $mobiles) {
+    margin-top: 15px;
+    margin-left: 0;
+  }
+}
+
+.clear-filters {
+  position: relative;
+  margin-left: 15px;
+  color: red;
+
+  &:hover {
+    cursor: pointer;
+  }
+}

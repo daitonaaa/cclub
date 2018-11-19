@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import React, { Component, Fragment } from 'react';
 
+import Controls from './Controls';
 import { Loading } from 'components/common';
 import PostsList from 'components/PostsList';
 
-import { fetchUsers } from 'actions/users';
 import { fetchPosts, resetList } from 'actions/posts';
 
 
@@ -16,17 +16,19 @@ class Posts extends Component {
     list: PropTypes.array.isRequired,
     loading: PropTypes.bool.isRequired,
     route: PropTypes.object.isRequired,
-    usersList: PropTypes.array.isRequired,
+    history: PropTypes.object.isRequired,
+
+    // search
+    searchResults: PropTypes.array.isRequired,
+    filterIsActive: PropTypes.bool.isRequired,
 
     resetList: PropTypes.func.isRequired,
     fetchPosts: PropTypes.func.isRequired,
-    fetchUsers: PropTypes.func.isRequired,
   }
 
   componentDidMount() {
-    const { fetchPosts, fetchUsers } = this.props;
+    const { fetchPosts } = this.props;
 
-    fetchUsers();
     fetchPosts();
   }
 
@@ -41,8 +43,11 @@ class Posts extends Component {
     resetList();
   }
 
+
   render() {
-    const { route: { title }, list, loading, usersList } = this.props;
+    const {
+      route: { title }, list, loading, history, searchResults, filterIsActive,
+    } = this.props;
 
     return (
       <Fragment>
@@ -54,7 +59,10 @@ class Posts extends Component {
           loading ? (
             <Loading />
           ) : (
-            <PostsList data={list} />
+            <Fragment>
+              <Controls history={history} />
+              <PostsList data={filterIsActive ? searchResults : list} />
+            </Fragment>
           )
         }
       </Fragment>
@@ -64,12 +72,10 @@ class Posts extends Component {
 
 const mapStateToProps = (state) => ({
   ...state.posts,
-  usersList: state.users.list,
 });
 
 const mapDispatchToProps = {
   resetList,
-  fetchUsers,
   fetchPosts,
 };
 

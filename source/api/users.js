@@ -1,10 +1,10 @@
 export default {
 
   getUser: (id) => (
-    fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
+    fetch(`http://jsonplaceholder.typicode.com/users/${id}`)
   ),
 
   getUsers: () => (
-    fetch('https://jsonplaceholder.typicode.com/users')
+    fetch('http://jsonplaceholder.typicode.com/users')
   ),
 };
